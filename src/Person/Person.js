@@ -1,21 +1,15 @@
 import React from 'react';
 // import { directive } from '@babel/types';
-import Radium from 'radium';
-import './Person.css';
+import styles from './Person.module.css';
 
 const person = (props) => {
-    const style = {
-        '@media (min-width: 500px)': {
-            width: '450px'
-        }
-    };
+    console.log(props);
     return (
-        <div className="Person" style={style}>
-            <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name}/>
+        <div className={styles.person}>
+            <p onClick={props.deletePersonHandler}>I'm {props.name} and I am {props.age} years old!</p>
+            <input type="text" onChange={props.changed} value={props.name} />
         </div>
     )
 };
 
-export default Radium(person);
+export default (person);
